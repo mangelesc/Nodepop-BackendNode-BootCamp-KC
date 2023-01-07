@@ -18,7 +18,7 @@ async function main() {
     const connection = require('./lib/connectMongoose')
 
     // Inicializamos la colección de ad
-    await initAd();
+    await initAds();
 
     // Desconectamos de la base de datos
     connection.close();
@@ -28,7 +28,7 @@ async function main() {
 main().catch(err => console.log('Oops, an error ocurred', err));
 
 // Inicializamos el modelo de ad, añadiendo algunos registros y borrando si había algunos anteriores
-async function initAd() {
+async function initAds() {
     // Borramos todos los documentos de la colección de ads
     const result = await Ad.deleteMany();
     console.log(`${result.deletedCount} ads deleted from de DataBase.`);
@@ -38,26 +38,26 @@ async function initAd() {
         {   name: 'Scooter',
             onSale: true,
             price: 250,
-            photo: '',
-            tags: ['moto', 'sports']
+            photo: 'scooter.jpg',
+            tags: ['hoobies', 'sports']
         },
         {   name: 'Thermomix',
             onSale: true,
             price: 500,
-            photo: '',
+            photo: 'thermomix.jpg',
             tags: ['cooking', 'tech']
         },
         {   name: 'AirPods',
             onSale: false,
             price: 60,
-            photo: '',
+            photo: 'airpods.jpg',
             tags: ['tech', 'hoobies']
         },
-        {   name: 'Surfboard',
+        {   name: 'Nikon Camera',
             onSale: false,
             price: 60,
-            photo: '',
-            tags: ['sports', 'hoobies']
+            photo: 'nikon.jpg',
+            tags: ['hoobies']
         },
 
     ]);

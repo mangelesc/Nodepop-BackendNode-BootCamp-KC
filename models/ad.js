@@ -7,35 +7,26 @@ const mongoose = require('mongoose');
 // Definimos el esquema de los anuncios
 const adSchema = mongoose.Schema({
     name: { 
-        type: String, 
-        required: true, 
-        index: true,
+        type: String
     },
     onSale: { 
-        type: Boolean, 
-        required: true,
-        index: true, 
+        type: Boolean
     },
     price:{ 
-        ype: Number, 
-        required: true,
-        index: true, 
+        type: Number
     },
     photo:{ 
-        type: String, 
-        required: true 
+        type: String  
     },
     // He cambiado los tags por estos otros
     tags: [{ 
         type: String, 
-        enum: ['cooking', 'sports', 'hoobies', 'tech'],
-        index: true,
+        enum: ['cooking', 'sports', 'hoobies', 'tech']
     }],
     // Añadimos la fecha para poder clasificarlo por fecha de creación
     created: { 
         type: Date, 
-        default: Date.now,
-        index: true, 
+        default: Date.now
     }
 });
 
