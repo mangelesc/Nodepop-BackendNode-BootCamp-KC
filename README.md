@@ -121,6 +121,15 @@ Paginación con **skip** y **limit**
   GET http://localhost:3000/api/ads?skip=0&limit=2
   ```
 
+Obtener lista de tags existentes
+  ```sh
+  GET http://localhost:3000/api/ads/tags
+  ```
+
+Ejemplo de varios filtros en una misma petición
+  ```sh
+  GET http://localhost:3000/api/ads?tags=cooking&onSale=true&name=t&minPrice=10&skip=0&limit=2&sort=price
+  ```
 ### Update
 Añadimos los campos a actualizar en el body de la petición PUT
   ```sh

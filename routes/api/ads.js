@@ -80,23 +80,44 @@ router.get('/', async (req, res, next) => {
         next(err);
     }
 });
+// GET /api/ads/tags
+// Devolvemos los tags exitentes
+router.get('/tags', async (req, res, next) => {
+    try {
+        const tags = await Ad.find().distinct('tags');
+        console.log(tags)
+        res.json({ result: tags });
+
+    } catch (err) {
+        next(err);
+    }
+}); 
 
 // GET /api/ads/(id)
-// Devolvemos un ad
+// Devolvemos un ad o los tags disponibles
 router.get('/:id', async (req, res, next) => {
     try {
         // Leemos el aprametro de entrada y lo metemos en una variable
         const id = req.params.id;
+        // Si usamos tags, buscaremos los tags disponibles, 
+        if(id === 'tags' ){
+            const tags = await Ad.find().distinct('tags');
+            console.log(tags)
+            res.json({ result: tags });
+        } else {
+            // Sino, buscaremos por ID
+            // Buscamos un ad en la BD
+            const ad = await Ad.findById(id);
 
-        // Buscamos un ad en la BD
-        const ad = await Ad.findById(id);
-
-        res.json({ result: ad });
+            res.json({ result: ad });
+        }
+        
 
     } catch (err) {
         next(err);
     }
 });
+
 
 // PUT /api/ads/(id) (body=adData)
 // Actualizamos un ad

@@ -47,6 +47,17 @@ adSchema.statics.list = function(filter, skip, limit, fields, sort) {
     return query.exec()
 }
 
+adSchema.statics.list = function(filter, skip, limit, fields, sort) {
+    // Creamos la consulta
+    const query = Ad.find(filter);
+    query.skip(skip);
+    query.limit(limit);
+    query.select(fields);
+    query.sort(sort);
+    // Ejecutamos la consulta, y retornamos la promesa
+    return query.exec()
+}
+
 // Creamos el modelo
 const Ad = mongoose.model('Ad', adSchema);
 
