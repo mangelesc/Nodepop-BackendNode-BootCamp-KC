@@ -19,9 +19,12 @@ router.get('/', async (req, res, next) => {
         // Filtros
         const name = req.query.name;
         const onSale = req.query.onSale;
-        const price = req.query.price;
+        const price = req.query.price;          
+        const minPrice = req.query.minPrice;      
+        const maxPrice = req.query.maxPrice;
         const tags = req.query.tags;
         const created =  req.query.created;
+
 
         // Paginación
         const skip = req.query.skip;
@@ -38,26 +41,34 @@ router.get('/', async (req, res, next) => {
 
         // Si se esecifica algñun filter, devolverá los correspondiendtes
         if (name) { // /api/ads?name=Smith
-        filter.name = new RegExp ('^' + req.query.name, "i");
+            filter.name = new RegExp ('^' + req.query.name, "i");
         }
 
         if (onSale) { // /api/ads?onSale=true
-        filter.onSale = onSale;
+            filter.onSale = onSale;
         }
 
         if (price) { // /api/ads?price=32
-        filter.price = price;
+            filter.price = price;
         }
 
-//         if (tags) { // /api/ads?age=32
-//         filter.tags = tags;
-//         }
+        // Precio mínimo y máximo
+        if (minPrice && maxPrice) {
+            filter.price = { $gte: minPrice, $lte: maxPrice };
+        } else if (minPrice && !maxPrice) {
+            filter.price = { $gte: minPrice };
+        } else if (!minPrice && maxPrice){
+            filter.price = { $lte: maxPrice };
+        }
 
-// // ************************************************************************
-//         // Filtrar por rango de fecha
-//         if (created) { // /api/ads?age=32
-//         filter.created = created;
-//         }
+        if (tags) { // /api/ads?tags=tech
+            filter.tags = tags;
+        }
+
+        // Filtrar por rango de fecha
+        if (created) { // /api/ads?sort=created
+            filter.created = created;
+        }
 
         const ads = await Ad.list(filter, skip, limit, fields, sort);
         console.log(ads)

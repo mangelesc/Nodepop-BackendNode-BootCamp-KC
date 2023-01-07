@@ -39,7 +39,7 @@ async function initAds() {
             onSale: true,
             price: 250,
             photo: 'scooter.jpg',
-            tags: ['hoobies', 'sports']
+            tags: ['hobbies', 'sports']
         },
         {   name: 'Thermomix',
             onSale: true,
@@ -51,13 +51,19 @@ async function initAds() {
             onSale: false,
             price: 60,
             photo: 'airpods.jpg',
-            tags: ['tech', 'hoobies']
+            tags: ['tech', 'hobbies']
         },
         {   name: 'Nikon Camera',
             onSale: false,
             price: 60,
             photo: 'nikon.jpg',
-            tags: ['hoobies']
+            tags: ['hobbies']
+        },
+        {   name: 'Nintendo Switch',
+            onSale: true,
+            price: 200,
+            photo: 'nintendo.jpg',
+            tags: ['hobbies', 'tech']
         },
 
     ]);

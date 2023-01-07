@@ -25,7 +25,7 @@ const adSchema = mongoose.Schema({
     // He cambiado los tags por estos otros
     tags: [{ 
         type: String, 
-        enum: ['cooking', 'sports', 'hoobies', 'tech'],
+        enum: ['cooking', 'sports', 'hobbies', 'tech'],
         index: true
     }],
     // Añadimos la fecha para poder clasificarlo por fecha de creación
@@ -38,7 +38,6 @@ const adSchema = mongoose.Schema({
 
 adSchema.statics.list = function(filter, skip, limit, fields, sort) {
     // Creamos la consulta
-    console.log(filter, skip, limit, fields, sort)
     const query = Ad.find(filter);
     query.skip(skip);
     query.limit(limit);
