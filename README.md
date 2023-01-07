@@ -83,30 +83,32 @@ Obtener un add por id
     GET http://localhost:3000/api/ads/63b9ab30d321900485db1d6d
     ```
 
-Otros ejemplos de búsquedas filtradas: 
+Ejemplos con búsquedas filtradas: 
   - **name**
     Posibilidad de buscar por el nombre completo o que empiece por el dato introducido
-      ```sh
-      GET http://localhost:3000/api/ads?name=scooter
-      GET http://localhost:3000/api/ads?name=n
-      ```
+    ```sh
+    GET http://localhost:3000/api/ads?name=scooter
+    ```
+    ```sh
+    GET http://localhost:3000/api/ads?name=n
+    ```
   - **onSale**
     'true' para ventas, 'false' para búsqueda
-  ```sh
-  GET http://localhost:3000/api/ads?onSale=true
-  ```
+    ```sh
+    GET http://localhost:3000/api/ads?onSale=true
+    ```
   - **price**
-  ```sh
-  GET http://localhost:3000/api/ads?price=60
-  ```
+    ```sh
+    GET http://localhost:3000/api/ads?price=60
+    ```
   - Por rango de precio con **minPrice**, **maxPrice**
-  ```sh
-  GET http://localhost:3000/api/ads?minPrice=50&maxPrice=100
-  ```
+    ```sh
+    GET http://localhost:3000/api/ads?minPrice=50&maxPrice=100
+    ```
   - **tags**
-  ```sh
-  GET http://localhost:3000/api/ads?tags=tech&tags=hobbies
-  ```
+    ```sh
+    GET http://localhost:3000/api/ads?tags=tech&tags=hobbies
+    ```
 
 Ordenación con **sort**
   -Ordenar por fecha de creación
@@ -115,17 +117,17 @@ Ordenación con **sort**
   ```
 
 Paginación con **skip** y **limit**
-      ```sh
-      GET http://localhost:3000/api/ads?skip=0&limit=2
-      ```
+  ```sh
+  GET http://localhost:3000/api/ads?skip=0&limit=2
+  ```
 
 ### Update
 Añadimos los campos a actualizar en el body de la petición PUT
-    ```sh
-      PUT http://localhost:3000/api/ads/63b9ab30d321900485db1d6d
-    ```
+  ```sh
+  PUT http://localhost:3000/api/ads/63b9ab30d321900485db1d6d
+  ```
 
 ### Delete
-    ```sh
-    DELETE http://localhost:3000/api/ads/63b9ab30d321900485db1d6e 
-    ```
+  ```sh
+  DELETE http://localhost:3000/api/ads/63b9ab30d321900485db1d6e 
+  ```
