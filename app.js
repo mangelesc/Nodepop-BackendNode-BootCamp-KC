@@ -22,8 +22,12 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 
+// Servir rutas estáticas en Express
+app.use(express.static('public'))
+
 // Ruta de nuestra API
 app.use('/api/ads', require('./routes/api/ads'));
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

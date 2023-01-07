@@ -38,31 +38,31 @@ async function initAds() {
         {   name: 'Scooter',
             onSale: true,
             price: 250,
-            photo: 'scooter.jpg',
+            photo: '/images/scooter.jpg',
             tags: ['hobbies', 'sports']
         },
         {   name: 'Thermomix',
             onSale: true,
             price: 500,
-            photo: 'thermomix.jpg',
+            photo: '/images/thermomix.jpg',
             tags: ['cooking', 'tech']
         },
         {   name: 'AirPods',
             onSale: false,
             price: 60,
-            photo: 'airpods.jpg',
+            photo: '/images/airpods.jpg',
             tags: ['tech', 'hobbies']
         },
         {   name: 'Nikon Camera',
             onSale: false,
             price: 60,
-            photo: 'nikon.jpg',
+            photo: '/images/nikon.jpg',
             tags: ['hobbies']
         },
         {   name: 'Nintendo Switch',
             onSale: true,
             price: 200,
-            photo: 'nintendo.jpg',
+            photo: '/images/nintendo.jpg',
             tags: ['hobbies', 'tech']
         },
 
