@@ -38,7 +38,7 @@ Arrancar la app en modo desarrollo
 npm run dev
 ```
 
-*Aplicación configurada para arrancar en el **puerto 3000**
+Aplicación configurada para arrancar en el **puerto 3000**
 
 
 ##  Documentación de la API
