@@ -9,7 +9,7 @@ const Ad = require('./models/Ad');
 async function main() {
 
     // Preguntamos al usuario si está seguro de borrar la BBDD
-    const question_continue = await questionYN("You're going to DELETE THE DATABASE, are you sure you want to delete it? Answer yes or no [n]") //[n] -> valor por defecto
+    const question_continue = await questionYN('You are going to DELETE THE DATABASE, are you sure you want to delete it? Answer "yes" or "no" [n] ') //[n] -> valor por defecto
     if (!question_continue) {
         process.exit();
     }
