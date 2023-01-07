@@ -38,7 +38,7 @@ router.get('/', async (req, res, next) => {
 
         // Si se esecifica algñun filter, devolverá los correspondiendtes
         if (name) { // /api/ads?name=Smith
-        filter.name = new RegExp ('^' + req.query.nombre, "i");;
+        filter.name = new RegExp ('^' + req.query.name, "i");
         }
 
         if (onSale) { // /api/ads?onSale=true
@@ -46,7 +46,7 @@ router.get('/', async (req, res, next) => {
         }
 
         if (price) { // /api/ads?price=32
-        filter.age = price;
+        filter.price = price;
         }
 
 //         if (tags) { // /api/ads?age=32
@@ -59,8 +59,8 @@ router.get('/', async (req, res, next) => {
 //         filter.created = created;
 //         }
 
-        const ads = await Ad.lista(filter, skip, limit, fields, sort);
-
+        const ads = await Ad.list(filter, skip, limit, fields, sort);
+        console.log(ads)
         // Respondemos con un objeto JSON
         res.json({ results: ads });
 

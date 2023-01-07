@@ -7,13 +7,17 @@ const mongoose = require('mongoose');
 // Definimos el esquema de los anuncios
 const adSchema = mongoose.Schema({
     name: { 
-        type: String
+        type: String,
+        index: true
     },
     onSale: { 
-        type: Boolean
+        type: Boolean,
+        min: 0,
+        index: true
     },
     price:{ 
-        type: Number
+        type: Number,
+        index: true
     },
     photo:{ 
         type: String  
@@ -21,17 +25,20 @@ const adSchema = mongoose.Schema({
     // He cambiado los tags por estos otros
     tags: [{ 
         type: String, 
-        enum: ['cooking', 'sports', 'hoobies', 'tech']
+        enum: ['cooking', 'sports', 'hoobies', 'tech'],
+        index: true
     }],
     // Añadimos la fecha para poder clasificarlo por fecha de creación
     created: { 
         type: Date, 
-        default: Date.now
+        default: Date.now,
+        index: true
     }
 });
 
 adSchema.statics.list = function(filter, skip, limit, fields, sort) {
     // Creamos la consulta
+    console.log(filter, skip, limit, fields, sort)
     const query = Ad.find(filter);
     query.skip(skip);
     query.limit(limit);
